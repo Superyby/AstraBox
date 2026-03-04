@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :astrabox, Astrabox.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "root",
+  password: "root",
   hostname: "localhost",
   database: "astrabox_dev",
   stacktrace: true,
