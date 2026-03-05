@@ -1,17 +1,11 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 import Config
 
+# Ecto repos and generator configuration
 config :astrabox,
   ecto_repos: [Astrabox.Repo],
   generators: [timestamp_type: :utc_datetime]
 
-# Configure the endpoint
+# Endpoint configuration
 config :astrabox, AstraboxWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
@@ -19,26 +13,17 @@ config :astrabox, AstraboxWeb.Endpoint,
     formats: [json: AstraboxWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Astrabox.PubSub,
-  live_view: [signing_salt: "ZpUJlClL"]
+  pubsub_server: Astrabox.PubSub
 
-# Configure the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
+# Mailer (uses Local adapter in dev; override in runtime.exs for prod)
 config :astrabox, Astrabox.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure Elixir's Logger
+# Logger format
 config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
+# Use Jason for JSON
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

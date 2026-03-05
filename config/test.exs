@@ -7,9 +7,9 @@ import Config
 # Run `mix help test` for more information.
 config :astrabox, Astrabox.Repo,
   username: "root",
-  password: "root",
+  password: "123456",
   hostname: "localhost",
-  database: "astrabox_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "demo#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
 
