@@ -12,4 +12,10 @@ defmodule AstraboxWeb.PageController do
       version: "0.1.0"
     })
   end
+
+  def ok(conn, _params) do
+    json(conn, %{
+      status: "ok"
+    })
+  end
 end

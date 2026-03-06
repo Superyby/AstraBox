@@ -14,6 +14,8 @@ defmodule AstraboxWeb.Router do
 
     # Health check: GET /api/health
     get "/health", PageController, :health
+
+    get "/ok" ,PageController, :ok
   end
 
   # -----------------------------------------------
